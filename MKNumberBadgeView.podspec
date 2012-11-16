@@ -5,6 +5,6 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/monospacecollective/MKNumberBadgeView"
   s.license      = 'Apache 2.0'
   s.author       = { "Michael F. Kamprath" => "michael@claireware.com" }
-  s.source       = { :git => "https://github.com/monospacecollective/MKNumberBadgeView.git", :tag => '1.0.0' }
+  s.source       = { :git => "https://github.com/monospacecollective/MKNumberBadgeView.git" }
   s.platform     = :ios
 end
