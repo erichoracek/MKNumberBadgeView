@@ -83,7 +83,8 @@
 	self.fillColor = [UIColor redColor];
 	self.strokeColor = [UIColor whiteColor];
 	self.textColor = [UIColor whiteColor];
-    self.hideWhenZero = NO;
+	self.hideWhenZero = NO;
+	self.userInteractionEnabled = NO; // so the badge view doesn't intercept touches when placed above a button
 	
 	self.backgroundColor = [UIColor clearColor];
 }
