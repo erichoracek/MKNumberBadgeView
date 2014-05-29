@@ -40,6 +40,7 @@
 
 // The current value displayed in the badge. Updating the value will update the view's display
 @property (assign,nonatomic) NSUInteger value;
+@property (strong,nonatomic) NSString *text;
 
 // Indicates whether the badge view draws a dhadow or not.
 @property (assign,nonatomic) BOOL shadow;

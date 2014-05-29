@@ -97,7 +97,10 @@
 	
 	CGContextRef curContext = UIGraphicsGetCurrentContext();
 
-	NSString* numberString = [NSString stringWithFormat:@"%d",self.value];
+    NSString* numberString = nil;
+    
+    if (_text) numberString = self.text;
+    else numberString = [NSString stringWithFormat:@"%d",self.value];
 	
 	
 	CGSize numberSize = [numberString sizeWithFont:self.font];
@@ -254,6 +257,7 @@
 - (void)setValue:(NSUInteger)inValue
 {
 	_value = inValue;
+    _text = nil;
     
     if (self.hideWhenZero == YES && _value == 0)
     {
@@ -267,9 +271,29 @@
 	[self setNeedsDisplay];
 }
 
+- (void)setText:(NSString*)inText
+{
+	_text = inText;
+    _value = 0;
+    
+    if (self.hideWhenZero == YES && _text == nil)
+    {
+        self.hidden = YES;
+    }
+    else
+    {
+        self.hidden = NO;
+    }
+	
+	[self setNeedsDisplay];
+}
+
 - (CGSize)badgeSize
 {
-	NSString* numberString = [NSString stringWithFormat:@"%d",self.value];
+	NSString* numberString = nil;
+    
+    if (_text) numberString = self.text;
+    else numberString = [NSString stringWithFormat:@"%d",self.value];
 	
 	
 	CGSize numberSize = [numberString sizeWithFont:self.font];
