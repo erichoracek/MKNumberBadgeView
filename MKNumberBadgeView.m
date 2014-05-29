@@ -79,7 +79,7 @@
 	self.shadow = YES;
 	self.shadowOffset = CGSizeMake(0, 3);
 	self.shine = YES;
-	self.alignment = UITextAlignmentCenter;
+	self.alignment = NSTextAlignmentCenter;
 	self.fillColor = [UIColor redColor];
 	self.strokeColor = [UIColor whiteColor];
 	self.textColor = [UIColor whiteColor];
@@ -97,7 +97,10 @@
 	
 	CGContextRef curContext = UIGraphicsGetCurrentContext();
 
-	NSString* numberString = [NSString stringWithFormat:@"%d",self.value];
+    NSString* numberString = nil;
+    
+    if (_text) numberString = self.text;
+    else numberString = [NSString stringWithFormat:@"%d",self.value];
 	
 	
 	CGSize numberSize = [numberString sizeWithFont:self.font];
@@ -128,13 +131,13 @@
 	switch (self.alignment) 
 	{
 		default:
-		case UITextAlignmentCenter:
+		case NSTextAlignmentCenter:
 			ctm = CGPointMake( round((viewBounds.size.width - badgeRect.size.width)/2), round((viewBounds.size.height - badgeRect.size.height)/2) );
 			break;
-		case UITextAlignmentLeft:
+		case NSTextAlignmentLeft:
 			ctm = CGPointMake( 0, round((viewBounds.size.height - badgeRect.size.height)/2) );
 			break;
-		case UITextAlignmentRight:
+		case NSTextAlignmentRight:
 			ctm = CGPointMake( (viewBounds.size.width - badgeRect.size.width), round((viewBounds.size.height - badgeRect.size.height)/2) );
 			break;
 	}
@@ -254,6 +257,7 @@
 - (void)setValue:(NSUInteger)inValue
 {
 	_value = inValue;
+    _text = nil;
     
     if (self.hideWhenZero == YES && _value == 0)
     {
@@ -267,9 +271,29 @@
 	[self setNeedsDisplay];
 }
 
+- (void)setText:(NSString*)inText
+{
+	_text = inText;
+    _value = 0;
+    
+    if (self.hideWhenZero == YES && _text == nil)
+    {
+        self.hidden = YES;
+    }
+    else
+    {
+        self.hidden = NO;
+    }
+	
+	[self setNeedsDisplay];
+}
+
 - (CGSize)badgeSize
 {
-	NSString* numberString = [NSString stringWithFormat:@"%d",self.value];
+	NSString* numberString = nil;
+    
+    if (_text) numberString = self.text;
+    else numberString = [NSString stringWithFormat:@"%d",self.value];
 	
 	
 	CGSize numberSize = [numberString sizeWithFont:self.font];
