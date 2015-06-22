@@ -1,7 +1,7 @@
 //
 //  MKNumberBadgeView.h
 //  MKNumberBadgeView
-//  
+//
 // Copyright 2009 Michael F. Kamprath
 // michael@claireware.com
 //
@@ -24,7 +24,7 @@
 // Use this class to display a badge containing an integer value.Similar to the app icon badges that the iPhone OS permits.
 //
 // Notes:
-//    * When creating the view, the frame used should be larger than the expected visual size of the badge view. Use the alignment 
+//    * When creating the view, the frame used should be larger than the expected visual size of the badge view. Use the alignment
 //      property to control the horizontal placement of the badge within the view's bounds. The badge will always be vertically
 //      centered for the badge itself ignoring the size fo the shadow if it is enabled.
 //    * The view's background color is automatically set to clear. If you change the background color, you may get curious results.
@@ -33,9 +33,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MKNumberBadgeView : UIView 
+@interface MKNumberBadgeView : UIView
 {
-	NSUInteger _value;
+    NSUInteger _value;
 }
 
 // The current value displayed in the badge. Updating the value will update the view's display
@@ -60,17 +60,19 @@
 // The color to be used for drawing the stroke around the badge.
 @property (retain,nonatomic) UIColor* strokeColor;
 
+@property (assign, nonatomic) CGFloat lineWidth;
+
 // The color to be used for drawing the badge's numbers.
 @property (retain,nonatomic) UIColor* textColor;
 
-// How the badge image hould be aligned horizontally in the view. 
-@property (assign,nonatomic) UITextAlignment alignment;
+// How the badge image hould be aligned horizontally in the view.
+@property (assign,nonatomic) NSTextAlignment alignment;
 
 // Returns the visual size of the badge for the current value. Not the same hing as the size of the view's bounds.
 // The badge view bounds should be wider than space needed to draw the badge.
 @property (readonly,nonatomic) CGSize badgeSize;
 
-// The number of pixels between the number inside the badge and the stroke around the badge. This value 
+// The number of pixels between the number inside the badge and the stroke around the badge. This value
 // is approximate, as the font geometry might effectively slightly increase or decrease the apparent pad.
 @property (nonatomic) NSUInteger pad;
 
