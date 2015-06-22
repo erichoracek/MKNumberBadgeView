@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name         = 'MKNumberBadgeView'
-  s.version      = '0.0.1'
+  s.name         = 'BPMKNumberBadgeView'
+  s.version      = '1.0.0'
   s.license      = {
                     :type => 'Apache License, Version 2.0',
                     :text => '
@@ -18,9 +18,11 @@ Pod::Spec.new do |s|
                     '
                   }
   s.summary      = 'Use this class to display a badge containing an integer value. Similar to the app icon badges that the iPhone OS permits.'
-  s.homepage     = 'https://github.com/monospacecollective/MKNumberBadgeView'
-  s.author       = { 'Michael F. Kamprath' => 'michael@claireware.com' }
-  s.source       = { :git => 'https://github.com/monospacecollective/MKNumberBadgeView.git' }
-  s.source_files = 'MKNumberBadgeView.{h,m}'
+  s.homepage     = 'https://github.com/blueprintsoftware/MKNumberBadgeView'
+  s.author       = { 'Michael F. Kamprath' => 'michael@claireware.com',
+  					'Nico van Zijl' => 'nico@blueprint-software.nl',
+  					'Rutger Nijhuis' => 'rutger@blueprint-software.nl' }
+  s.source       = { :git => 'https://github.com/blueprintsoftware/MKNumberBadgeView.git' }
+  s.source_files = 'BPMKNumberBadgeView.{h,m}'
   s.platform     = :ios
 end
